@@ -1,10 +1,4 @@
 /* ============================================================
-   STYLES.CSS — Mark Kenneth Galario Resume
-   Organized: Variables → Reset → Base → Layout → Components →
-              Sections → Animations → Media Queries → Print
-   ============================================================ */
-
-/* ============================================================
    1. CSS CUSTOM PROPERTIES (Design Tokens)
    ============================================================ */
 :root {

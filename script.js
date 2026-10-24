@@ -1,10 +1,4 @@
 /* ============================================================
-   SCRIPT.JS — Mark Kenneth Galario Resume
-   All resume data lives in the resumeData object below.
-   Edit it to update the entire page.
-   ============================================================ */
-
-/* ============================================================
    1. RESUME DATA OBJECT
    ============================================================ */
 const resumeData = {
