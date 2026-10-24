@@ -933,15 +933,43 @@ input, textarea {
   z-index: 2;
 }
 
-.btn--hero-primary {
+.btn--hero-primary,
+.btn--hero-primary:link,
+.btn--hero-primary:visited {
   background: #ffffff;
-  color: var(--color-primary-hover);
+  color: #0b1b3a;
+  font-weight: 600;
   pointer-events: auto;
 }
 
 .btn--hero-primary:hover {
-  background: rgba(255, 255, 255, 0.9);
-  color: var(--color-primary-hover);
+  background: #f1f5f9;
+  color: #0b1b3a;
+}
+
+.btn--hero-primary:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 3px;
+  color: #0b1b3a;
+}
+
+.btn--hero-primary:active {
+  background: #e2e8f0;
+  color: #0b1b3a;
+}
+
+.btn--hero-primary svg,
+.btn--hero-primary * {
+  color: currentColor;
+}
+
+[data-theme="dark"] .btn--hero-primary,
+[data-theme="dark"] .btn--hero-primary:link,
+[data-theme="dark"] .btn--hero-primary:visited,
+[data-theme="dark"] .btn--hero-primary:hover,
+[data-theme="dark"] .btn--hero-primary:focus-visible,
+[data-theme="dark"] .btn--hero-primary:active {
+  color: #0b1b3a;
 }
 
 .btn--hero-outline {
