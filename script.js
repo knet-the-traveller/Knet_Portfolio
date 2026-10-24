@@ -56,7 +56,7 @@ const resumeData = {
 
   /* Highlights — ONLY facts from the resume */
   highlights: [
-    { number: 10,  prefix: "Top ", suffix: "", label: "of 700+ teams (eGOVPH)", countTo: 10 },
+    { number: 5,   prefix: "Top ", suffix: "", label: "of 700+ teams (eGOVPH)", countTo: 5 },
     { number: 5,   prefix: "Top ", suffix: "", label: "of 100+ entries (KPMG)", countTo: 5 },
     { number: 2,   prefix: "",     suffix: "nd Place", label: "(ENEDA)", countTo: 2 },
     { number: 7,   prefix: "",     suffix: "", label: "Organizations", countTo: 7 },
@@ -68,7 +68,7 @@ const resumeData = {
     {
       id: 1,
       title: "eGOVPH Hackathon",
-      result: "Top 10 Finalist",
+      result: "Top 5 Finalist",
       category: "finalist",
       org: "eGovPH",
       theme: "Collaborative Solution for a Better Philippines",
@@ -77,7 +77,7 @@ const resumeData = {
         {
           src: "images/egov.jpg",
           alt: "Mark Kenneth Galario and teammates at the eGOVPH Hackathon Finals",
-          caption: "eGOVPH Hackathon Finals — Top 10 Finalist nationwide out of 700+ registered teams, July 2026"
+          caption: "eGOVPH Hackathon Finals — Top 5 Finalist nationwide out of 700+ registered teams, July 2026"
         }
       ],
       bullets: [
@@ -675,14 +675,15 @@ function renderHighlights() {
   $("#highlights").innerHTML = `
     <div class="highlights__grid">
       ${items.map(h => `
-        <div class="highlight-stat reveal">
+        <div class="highlight-stat reveal" aria-label="${h.prefix}${h.countTo}${h.suffix} ${h.label}">
           <div class="highlight-stat__number"
                data-count-to="${h.countTo}"
                data-prefix="${h.prefix}"
-               data-suffix="${h.suffix}">
-            ${h.prefix}0${h.suffix}
+               data-suffix="${h.suffix}"
+               aria-hidden="true">
+            ${h.prefix}${h.countTo}${h.suffix}
           </div>
-          <div class="highlight-stat__label">${h.label}</div>
+          <div class="highlight-stat__label" aria-hidden="true">${h.label}</div>
         </div>
       `).join("")}
     </div>`;
@@ -1591,6 +1592,11 @@ function initCountUp() {
   const statEls = $$(".highlight-stat__number[data-count-to]");
   let animated = false;
 
+  // If user prefers reduced motion, leave the initial numbers as rendered
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    return;
+  }
+
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting && !animated) {
@@ -1621,6 +1627,8 @@ function animateCount(el) {
     if (progress < 1) requestAnimationFrame(update);
   }
 
+  // Start animation from 0 up to target
+  el.textContent = prefix + "0" + suffix;
   requestAnimationFrame(update);
 }
 
