@@ -13,6 +13,7 @@
   --color-primary-hover: #1d4ed8;
   --color-primary-light: #dbeafe;
   --color-primary-subtle: #eff6ff;
+  --color-btn-primary-text: #1e3a8a; /* Deep blue for white-button text (Tailwind blue-900) */
   --color-accent: #f59e0b;
   --color-accent-hover: #d97706;
   --color-success: #22c55e;
@@ -74,6 +75,7 @@
   --color-primary-hover: #93bbfd;
   --color-primary-light: #1e3a5f;
   --color-primary-subtle: #172554;
+  --color-btn-primary-text: #1e3a8a;
   --color-accent: #fbbf24;
   --color-accent-hover: #fcd34d;
 
@@ -937,25 +939,25 @@ input, textarea {
 .btn--hero-primary:link,
 .btn--hero-primary:visited {
   background: #ffffff;
-  color: #0b1b3a;
+  color: var(--color-btn-primary-text);
   font-weight: 600;
   pointer-events: auto;
 }
 
 .btn--hero-primary:hover {
   background: #f1f5f9;
-  color: #0b1b3a;
+  color: var(--color-btn-primary-text);
 }
 
 .btn--hero-primary:focus-visible {
   outline: 2px solid #ffffff;
   outline-offset: 3px;
-  color: #0b1b3a;
+  color: var(--color-btn-primary-text);
 }
 
 .btn--hero-primary:active {
   background: #e2e8f0;
-  color: #0b1b3a;
+  color: var(--color-btn-primary-text);
 }
 
 .btn--hero-primary svg,
@@ -969,7 +971,7 @@ input, textarea {
 [data-theme="dark"] .btn--hero-primary:hover,
 [data-theme="dark"] .btn--hero-primary:focus-visible,
 [data-theme="dark"] .btn--hero-primary:active {
-  color: #0b1b3a;
+  color: var(--color-btn-primary-text);
 }
 
 .btn--hero-outline {
